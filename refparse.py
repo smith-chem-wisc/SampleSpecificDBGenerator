@@ -63,7 +63,7 @@ def read_fasta_to_xml(root, refFasta):
     line = refFasta.readline().strip()
     while line != "":
         if line.startswith(">"):
-            line = line.split(' ')
+            line = line.split()
             acc, seqtype, chromosome = line[0][1:], line[1], line[2]
             geneId, transcriptId, addedInfo = line[3].split(':')[1], line[4].split(':')[1], ' '.join(line[5:])
             line = refFasta.readline().strip()
