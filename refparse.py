@@ -180,4 +180,4 @@ class GeneModel():
         if 'transcript_biotype' not in attributes: attributes['transcript_biotype'] = line[1] #canonical gtf
         
         chromosome = self.get_chrom(chrom, strand)
-        chromosome.enter_annotation(chromStart, chromEnd, attributes['gene_name'], attributes['gene_biotype'])
+        if 'gene_name' in attributes and 'gene_biotype' in attributes: chromosome.enter_annotation(chromStart, chromEnd, attributes['gene_name'], attributes['gene_biotype'])

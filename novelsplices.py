@@ -12,7 +12,7 @@ XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 NAMESPACE_MAP = {None:HTML_NS, "xsi":XSI_NS}
 UP = '{'+HTML_NS+'}'
 
-def enter_seqvar(root, acc, seqtype, chromosome, addedInfo, loci, score, geneId, transcriptId, seq):
+def enter_seqvar(root, acc, refName, seqtype, chromosome, addedInfo, loci, score, geneId, transcriptId, seq):
     entry = et.SubElement(root, UP+'entry', dataset="Ensembl")
 
     accession = et.SubElement(entry, UP+'accession')
@@ -27,8 +27,8 @@ def enter_seqvar(root, acc, seqtype, chromosome, addedInfo, loci, score, geneId,
 
     gene = et.SubElement(entry, UP+'gene')
     geneName1 = et.SubElement(gene, UP+'name', type="coords")
-    if loci: geneName1.text = chromosome + ":" + loci
-    else: geneName1.text = chromosome
+    if loci: geneName1.text = refName + ":" + chromosome + ":" + loci
+    else: geneName1.text = refName + ":" + chromosome
 
     organism = et.SubElement(entry, UP+'organism')
     organismName1 = et.SubElement(organism, UP+'name', type="scientific")
@@ -92,6 +92,6 @@ def translate_bed_line(root, geneModel, line, nsjDepthCut, minLength, refName, s
                         exons = "exons:%s:%s;%s:%s" % (exon1Type[0], exon1Type[1], exon2Type[0], exon2Type[1])
                         loci = "%s:%s;%s:%s" % (trypFragLeft, exon1Right, exon2Left, trypFragRight)
                         score = str(entry.score) if scoreName == 'depth' else ''
-                        enter_seqvar(root, accession, 'pep:splice', chromosome, exons, loci, score, '', '', peptide)
+                        enter_seqvar(root, accession, refName, 'pep:splice', chromosome, exons, loci, score, '', '', peptide)
 
                     trypFragLeft = update_tryp_index(trypFragLeft, exon1Right, exon2Left, peptide)

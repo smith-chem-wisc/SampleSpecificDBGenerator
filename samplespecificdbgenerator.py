@@ -36,7 +36,7 @@ def __main__():
     parser.add_option( '-M', '--minimum_length', dest='minimum_length', type='int', default=0, help='Keep only sequence variant peptides with greater than or equal to this length.' )
       #Simple entry
     parser.add_option( '-Q', '--bed_score_name', dest='bed_score_name', default="depth", help='Include in the NSJ ID line score_name:score, default: "depth."'  )
-    parser.add_option( '-R', '--reference', dest='reference', default=None, help='Genome Reference Name for NSJ ID location '  )
+    parser.add_option( '-R', '--reference', dest='reference', default="None", help='Genome Reference Name for NSJ ID location '  )
     (options, args) = parser.parse_args()
     
     ##INPUTS##
@@ -94,7 +94,9 @@ def __main__():
         geneModel = refparse.GeneModel()
         for i, gtf_line in enumerate(geneModelFile):
             if i % 20000 == 0: print "gene_model line " + str(i) + " of " + str(linect)
-            geneModel.new_entry(gtf_line)
+            if gtf_line.startswith('#') and  gtf_line.find('genome_build') >= 0: options.reference = gtf_line.split()[1]
+            elif gtf_line.startswith('#'): continue
+            else: geneModel.new_entry(gtf_line)
     except Exception, e:
         print >> sys.stderr, "Parsing gene model failed: %s" % e
         exit(2)
