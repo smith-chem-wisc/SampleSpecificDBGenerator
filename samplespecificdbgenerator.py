@@ -20,23 +20,23 @@ def __main__():
     #Parse Command Line
     parser = optparse.OptionParser()
       #I/O
-    parser.add_option( '-x', '--reference_xml', dest='reference_xml', help='The reference UniProt-XML file.' )
-    parser.add_option( '-p', '--protein_fasta', dest='protein_fasta', help='Reference protein FASTA file.')
-    parser.add_option( '-g', '--gene_model', dest='gene_model', default=None, help='GTF gene model file')
-    parser.add_option( '-v', '--snpeff_vcf', dest='snpeff_vcf', help='The input snpeff vcf file with HGVS annotations (else read from stdin)' )
-    parser.add_option( '-b', '--splice_bed', dest='splice_bed', help='BED file (tophat junctions.bed) with sequence column added' )
-    parser.add_option( '-o', '--output', dest='output', help='Output file path. Outputs database in XML format unless --output-fasta is selected.' )
-    parser.add_option( '-z', '--output_fasta', dest='output_fasta', action='store_true', default=False, help='Output a FASTA-format database. Place path for file after the --output flag.')
+    parser.add_option( '-x', '--reference_xml', dest='reference_xml', help='Reference protein UniProt-XML file. Sequence variant peptide entries are appended to this database to generate the ouptut UniProt-XML protein database.' )
+    parser.add_option( '-p', '--protein_fasta', dest='protein_fasta', help='Reference protein FASTA file. Used to generate SAV peptide entries. If no UniProt-XML is specified, SAV and NSJ entries will be appended to this database to generate an output database. By default, this output will be a UniProt-XML protein database without PTM annotations. If --output-fasta is selected, the output will be a protein FASTA.')
+    parser.add_option( '-g', '--gene_model', dest='gene_model', default=None, help='GTF gene model file. Used to annotate NSJ peptide entries.')
+    parser.add_option( '-v', '--snpeff_vcf', dest='snpeff_vcf', help='SnpEff VCF file with HGVS annotations (else read from stdin).' )
+    parser.add_option( '-b', '--splice_bed', dest='splice_bed', help='BED file (tophat junctions.bed) with sequence column added.' )
+    parser.add_option( '-o', '--output', dest='output', help='Output file path. Outputs UniProt-XML format unless --output-fasta is selected.' )
+    parser.add_option( '-z', '--output_fasta', dest='output_fasta', action='store_true', default=False, help='Output a FASTA-format database. Place path for output file after the --output flag.')
       #Peptide sequence construction
-    parser.add_option( '-l', '--leading_aa_num', dest='leading_aa_num', type='int', default=0, help='leading number of AAs to output for SAV peptides' )
-    parser.add_option( '-t', '--trailing_aa_num', dest='trailing_aa_num', type='int', default=0, help='trailing number of AAs to output for SAV peptides' )
+    parser.add_option( '-l', '--leading_aa_num', dest='leading_aa_num', type='int', default=33, help='Leading number of AAs to output for SAV peptides. Default: 33.' )
+    parser.add_option( '-t', '--trailing_aa_num', dest='trailing_aa_num', type='int', default=33, help='Trailing number of AAs to output for SAV peptides. Default: 33.' )
       #Filtering parameters
-    parser.add_option( '-D', '--nsj_depth_cutoff', dest='nsj_depth_cutoff', type='int', default=0, help='Keep only NSJs found with above this depth (DP=# field)' )
-    parser.add_option( '-E', '--snv_depth_cutoff', dest='snv_depth_cutoff', type='int', default=0, help='Keep only SNVs found with above this depth (DP=# field)' )
-    parser.add_option( '-M', '--minimum_length', dest='minimum_length', type='int', default=0, help='Keep only sequence variant peptides with greater than or equal to this length.' )
+    parser.add_option( '-D', '--nsj_depth_cutoff', dest='nsj_depth_cutoff', type='int', default=0, help='Keep only NSJs found with above this depth (BED score field). Default: 0.' )
+    parser.add_option( '-E', '--snv_depth_cutoff', dest='snv_depth_cutoff', type='int', default=0, help='Keep only SNVs found with above this depth (DP=# field). Default: 0.' )
+    parser.add_option( '-M', '--minimum_length', dest='minimum_length', type='int', default=0, help='Keep only sequence variant peptides with greater than or equal to this length. Default: 0.' )
       #Simple entry
-    parser.add_option( '-Q', '--bed_score_name', dest='bed_score_name', default="depth", help='Include in the NSJ ID line score_name:score, default: "depth."'  )
-    parser.add_option( '-R', '--reference', dest='reference', default="None", help='Genome Reference Name for NSJ ID location '  )
+    parser.add_option( '-Q', '--bed_score_name', dest='bed_score_name', default="depth", help='Include in the NSJ ID line score_name:score. Default: "depth."'  )
+    parser.add_option( '-R', '--reference', dest='reference', default="None", help='Genome Reference Name for NSJ ID location. Automatically pulled from genome_build header in GTF if present.'  )
     (options, args) = parser.parse_args()
     
     ##INPUTS##

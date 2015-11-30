@@ -90,7 +90,7 @@ def transcript_based_entry(root, line, transcript, protein_fasta, chrom, pos, co
     start_pos = max(aa_offset - leading_aas, 0) if leading_aas else 0
     end_pos = min(aa_offset + trailing_aas + 1, len(pep_seq)) if trailing_aas else len(pep_seq)
     alt_seq = pep_seq[start_pos:aa_offset] + alt_aa + pep_seq[aa_offset+1:end_pos]
-    #if len(alt_seq) < minPepLength: return
+    if len(alt_seq) < minPepLength: return
 
     fields = pep_id.split(' ')
     fields.append("snv_location:%s:%s codon_change:%s sav:%s" % (chrom, pos, codon_change, sav))
