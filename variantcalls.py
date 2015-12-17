@@ -65,7 +65,7 @@ def parse_aa_change(aa_change):
     aa_change_regex = '([A-Z])(\d+)([A-Z])' # G528R
     aa_hgvs_regex = 'p\.([A-Z][a-z][a-z])(\d+)([A-Z][a-z][a-z])(/c\.(\d+)([ACGTN])>([ACGTN]))' # p.Gly528Arg/c.1582G>C
     aa_pos = None # 1-based position
-    alt_aa = '_'
+    ref_aa, alt_aa = '_', '_'
     m = re.match(aa_change_regex, aa_change) # parse aa_change, and get AA change position and alternate Animo Acid
     if m:
         aa_pos = int(m.groups()[1])
@@ -92,7 +92,7 @@ def transcript_based_entry(root, line, transcript, protein_fasta, chrom, pos, co
     alt_seq = pep_seq[start_pos:aa_offset] + alt_aa + pep_seq[aa_offset+1:end_pos]
     if len(alt_seq) < minPepLength: return
 
-    fields = pep_id.split(' ')
+    fields = pep_id.split()
     fields.append("snv_location:%s:%s codon_change:%s sav:%s" % (chrom, pos, codon_change, sav))
     enter_seqvar(root, fields[0], 'pep:sav', fields[2], ' '.join(fields[5:]), '', '', fields[3][5:], fields[4][11:], alt_seq)
     
