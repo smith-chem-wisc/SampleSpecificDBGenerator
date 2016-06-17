@@ -1,0 +1,234 @@
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/support/docs/uniprot.xsd">
+  <entry dataset="Swiss-Prot" created="1992-08-01" modified="2016-03-16" version="177">
+    <accession>P27348</accession>
+    <accession>D6W4Z5</accession>
+    <accession>Q567U5</accession>
+    <accession>Q5TZU8</accession>
+    <accession>Q9UP48</accession>
+    <name>1433T_HUMAN</name>
+    <protein>
+      <recommendedName>
+        <fullName>14-3-3 protein theta</fullName>
+      </recommendedName>
+    </protein>
+    <gene>
+      <name type="primary">YWHAQ</name>
+    </gene>
+    <organism>
+      <name type="scientific">Homo sapiens</name>
+      <name type="common">Human</name>
+    </organism>
+    <dbReference type="Ensembl" id="ENST00000238081">
+      <property type="protein sequence ID" value="ENSP00000238081"/>
+      <property type="gene ID" value="ENSG00000134308"/>
+    </dbReference>
+    <dbReference type="Ensembl" id="ENST00000381844">
+      <property type="protein sequence ID" value="ENSP00000371267"/>
+      <property type="gene ID" value="ENSG00000134308"/>
+    </dbReference>
+    <proteinExistence type="evidence at protein level"/>
+    <feature type="modified residue" description="N-acetylmethionine" evidence="4 5 17">
+      <location>
+        <position position="1"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="N6-acetyllysine" evidence="3">
+      <location>
+        <position position="3"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="N6-acetyllysine" evidence="3">
+      <location>
+        <position position="49"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="N6-acetyllysine" evidence="3">
+      <location>
+        <position position="68"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Nitrated tyrosine" evidence="7">
+      <location>
+        <position position="82"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="6">
+      <location>
+        <position position="92"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Nitrated tyrosine" evidence="7">
+      <location>
+        <position position="104"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="N6-acetyllysine" evidence="3">
+      <location>
+        <position position="115"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="2 16">
+      <location>
+        <position position="232"/>
+      </location>
+    </feature>
+    <sequence length="245" mass="27764" checksum="175534325E9E37C4" modified="1992-08-01" version="1">
+MEKTELIQKAKLAEQAERYDDMATCMKAVTEQGAELSNEERNLLSVAYKNVVGGRRSAWR
+VISSIEQKTDTSDKKLQLIKDYREKVESELRSICTTVLELLDKYLIANATNPESKVFYLK
+MKGDYFRYLAEVACGDDRKQTIDNSQGAYQEAFDISKKEMQPTHPIRLGLALNFSVFYYE
+ILNNPELACTLAKTAFDEAIAELDTLNEDSYKDSTLIMQLLRDNLTLWTSDSAGEECDAA
+EGAEN
+</sequence>
+  </entry>
+  <entry dataset="Swiss-Prot" created="1993-04-01" modified="2016-03-16" version="148">
+    <accession>P30443</accession>
+    <accession>O77964</accession>
+    <accession>O78171</accession>
+    <accession>Q9MYA3</accession>
+    <accession>Q9TP25</accession>
+    <accession>Q9TQP5</accession>
+    <name>1A01_HUMAN</name>
+    <protein>
+      <recommendedName>
+        <fullName>HLA class I histocompatibility antigen, A-1 alpha chain</fullName>
+      </recommendedName>
+    </protein>
+    <gene>
+      <name type="primary">HLA-A</name>
+      <name type="synonym">HLAA</name>
+    </gene>
+    <organism>
+      <name type="scientific">Homo sapiens</name>
+      <name type="common">Human</name>
+    </organism>
+    <dbReference type="Ensembl" id="ENST00000431930">
+      <property type="protein sequence ID" value="ENSP00000406366"/>
+      <property type="gene ID" value="ENSG00000229215"/>
+    </dbReference>
+    <dbReference type="Ensembl" id="ENST00000443552">
+      <property type="protein sequence ID" value="ENSP00000404678"/>
+      <property type="gene ID" value="ENSG00000224320"/>
+    </dbReference>
+    <dbReference type="Ensembl" id="ENST00000549869">
+      <property type="protein sequence ID" value="ENSP00000447635"/>
+      <property type="gene ID" value="ENSG00000224320"/>
+    </dbReference>
+    <dbReference type="Ensembl" id="ENST00000552193">
+      <property type="protein sequence ID" value="ENSP00000447614"/>
+      <property type="gene ID" value="ENSG00000229215"/>
+    </dbReference>
+    <proteinExistence type="evidence at protein level"/>
+    <feature type="modified residue" description="Sulfotyrosine" evidence="9">
+      <location>
+        <position position="83"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="8">
+      <location>
+        <position position="343"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphotyrosine" evidence="8">
+      <location>
+        <position position="344"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="8">
+      <location>
+        <position position="349"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="7">
+      <location>
+        <position position="350"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="5">
+      <location>
+        <position position="352"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="5">
+      <location>
+        <position position="356"/>
+      </location>
+    </feature>
+    <feature type="modified residue" description="Phosphoserine" evidence="5">
+      <location>
+        <position position="359"/>
+      </location>
+    </feature>
+    <sequence length="365" mass="40846" checksum="8667AFF3F06C4932" modified="1993-04-01" version="1" precursor="true">
+MAVMAPRTLLLLLSGALALTQTWAGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRF
+DSDAASQKMEPRAPWIEQEGPEYWDQETRNMKAHSQTDRANLGTLRGYYNQSEDGSHTIQ
+IMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAVHAAEQR
+RVYLEGRCVDGLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLT
+WQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEL
+SSQPTIPIVGIIAGLVLLGAVITGAVVAAVMWRRKSSDRKGGSYTQAASSDSAQGSDVSL
+TACKV
+</sequence>
+  </entry>
+  <copyright>
+Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+Distributed under the Creative Commons Attribution-NoDerivs License
+</copyright>
+  <entry dataset="Ensembl">
+    <accession>ENSP00000314949</accession>
+    <name>pep:sav</name>
+    <protein>
+      <recommendedName>
+        <fullName>gene_biotype:protein_coding transcript_biotype:protein_coding snv_location:17:7417086 codon_change:Gcc/Acc sav:A1835T</fullName>
+      </recommendedName>
+    </protein>
+    <gene>
+      <name type="coords">chromosome:GRCh37:17:7387685:7417933:1</name>
+      <name type="primary">ENSG00000181222<transcript type="primary">ENST00000322644</transcript></name>
+    </gene>
+    <organism>
+      <name type="scientific">Homo sapiens</name>
+      <name type="common">Human</name>
+    </organism>
+    <proteinExistence type="evidence at transcript level"/>
+    <sequence fragment="single" version="1">PSYSPSSPRYTPQSPTYTPSSPSYSPSSPSYSPTSPKYTPTSPSYSPSSPEYTPTSPKYSPTSPKYS</sequence>
+  </entry>
+  <entry dataset="Ensembl">
+    <accession>JUNC00065531_2</accession>
+    <name>pep:splice</name>
+    <protein>
+      <recommendedName>
+        <fullName>exons::novel;:novel</fullName>
+      </recommendedName>
+    </protein>
+    <gene>
+      <name type="coords">None:chromosome:None:5:-:1094367:1094398;1110845:1110860</name>
+    </gene>
+    <organism>
+      <name type="scientific">Homo sapiens</name>
+      <name type="common">Human</name>
+    </organism>
+    <proteinExistence type="evidence at transcript level">
+      <depth reads="1"/>
+    </proteinExistence>
+    <sequence fragment="single" version="1">WSGGAPGSTPGDGNPR</sequence>
+  </entry>
+  <entry dataset="Ensembl">
+    <accession>JUNC00065531_3</accession>
+    <name>pep:splice</name>
+    <protein>
+      <recommendedName>
+        <fullName>exons::novel;:novel</fullName>
+      </recommendedName>
+    </protein>
+    <gene>
+      <name type="coords">None:chromosome:None:5:-:1094384:1094398;1110845:1110865</name>
+    </gene>
+    <organism>
+      <name type="scientific">Homo sapiens</name>
+      <name type="common">Human</name>
+    </organism>
+    <proteinExistence type="evidence at transcript level">
+      <depth reads="1"/>
+    </proteinExistence>
+    <sequence fragment="single" version="1">QAQHQEMEIQEK</sequence>
+  </entry>
+</uniprot>

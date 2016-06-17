@@ -1,4 +1,73 @@
-SampleSpecificDBGenerator is a program that takes RNA sequencing data analysis results and translates them into protein database entries that are appended to a UniProt-XML file. This XML is condensed, meaning that much of the extraneous author information in UniProt-XMLs is removed for faster search times in Morpheus.
+Introduction:
+
+SampleSpecificDBGenerator is a program that takes RNA sequencing data analysis results,
+and translates them into protein database entries that are appended to a protein database.
+More information on the data analysis files can be found below. The protein database can 
+either be in UniProt-XML format (by default) or protein fasta format(using the -z option).
+The UniProt-XML is condensed, meaning that much of the extraneous author information is 
+removed to speed up search times in Morpheus.
+
+
+Example commands:
+
+1. Create a sample-specific UniProt-XML database from a reference XML:
+python samplespecificdbgenerator.py -x uniprot.xml -p ensembl.pep.all.fasta 
+-g ensembl.gtf -v snpeff.vcf -b tophat.splice.bed -o sample_specific.xml
+
+2. Sample-specific FASTA from a reference protein FASTA:
+python samplespecificdbgenerator.py -p ensembl.pep.all.fasta 
+-g ensembl.gtf -v snpeff.vcf -b tophat.splice.bed -o sample_specific.fasta -z
+
+3. Sample-specific UniProt-XML from a reference protein FASTA:
+python samplespecificdbgenerator.py -p ensembl.pep.all.fasta 
+-g ensembl.gtf -v snpeff.vcf -b tophat.splice.bed -o sample_specific.fasta
+
+4. Sample-specific FASTA from a reference XML:
+python samplespecificdbgenerator.py -x uniprot.xml -p ensembl.pep.all.fasta 
+-g ensembl.gtf -v snpeff.vcf -b tophat.splice.bed -o sample_specific.fasta -z
+
+
+Author information: Anthony Cesnik, UW-Madison
+
+
+Please cite:
+
+This program was published in:
+4. Cesnik, et al. "Human Proteomic Variation Revealed by Combining RNA-Seq 
+Proteogenomics and Global Post-Translational Modification (G-PTM) Search 
+Strategy. J. Proteome Res. 2016, 15, 800–808.
+
+And it is based on the following papers:
+1. Sheynkman, et al. "Discovery and Mass Spectrometric Analysis of Novel 
+Splice-Junction Peptides Using RNA-Seq." Mol Cell Proteomics 2013, 12, 
+2341-2353.
+2. Sheynkman, et al. "Large-scale mass spectrometric detection of variant
+peptides resulting from nonsynonymous nucleotide differences." J Proteome 
+Research 2014, 13, 228-240.
+3. Sheynkman, et al. "Using Galaxy-P to leverage RNA-Seq for the discovery 
+of novel protein variations." BMC Genomics 2014, 15, 9.
+
+
+System requirements:
+- 8 GB of RAM is recommended
+- python v2.7.10
+See https://www.python.org/downloads/ for installation instructions.
+This includes the “pip” package manager.
+- Biopython python package
+Install using the command: pip install biopython
+Or see http://biopython.org/wiki/Download for installation instructions.
+- Lxml python package
+Install using the command: pip install lxml 
+Or see http://lxml.de for installation instructions.
+- If you encounter errors installing either package, we recommend
+trying an alternate package manager, such as Canopy, which can be found
+here: https://www.enthought.com/products/canopy/.
+
+Version updates:
+v0.0.2 November 26, 2015 Initial commit
+v0.0.3 November 30, 2015 Updated usage information. Allows minimum length 
+cutoff to filter both SAV and NSJ peptide entries.
+
 
 Usage: samplespecificdbgenerator.py [options]
 
@@ -52,39 +121,4 @@ Options:
                         Genome Reference Name for NSJ ID location.
                         Automatically pulled from genome_build header in GTF
                         if present.
-
-SampleSpecificDBGenerator is based on the following papers:
-1. Sheynkman, et al. "Discovery and Mass Spectrometric Analysis of Novel 
-Splice-Junction Peptides Using RNA-Seq." Mol Cell Proteomics 2013, 12, 
-2341-2353.
-2. Sheynkman, et al. "Large-scale mass spectrometric detection of variant
-peptides resulting from nonsynonymous nucleotide differences." J Proteome 
-Research 2014, 13, 228-240.
-3. Sheynkman, et al. "Using Galaxy-P to leverage RNA-Seq for the discovery 
-of novel protein variations." BMC Genomics 2014, 15, 9.
-4. Cesnik, et al. "Human Proteomic Variation Revealed by Combining RNA-Seq 
-Proteogenomics and Global Post-Translational Modification (G-PTM) Search 
-Strategy." In review.
-
-Author information: Anthony Cesnik, UW-Madison
-
-System requirements:
-- 8 GB of RAM is recommended
-- python v2.7.10
-See https://www.python.org/downloads/ for installation instructions.
-This includes the “pip” package manager.
-- Biopython python package
-Install using the command: pip install biopython
-Or see http://biopython.org/wiki/Download for installation instructions.
-- Lxml python package
-Install using the command: pip install lxml 
-Or see http://lxml.de for installation instructions.
-- If you encounter errors installing either package, we recommend
-trying an alternate package manager, such as Canopy, which can be found
-here: https://www.enthought.com/products/canopy/.
-
-
-Version updates:
-v0.0.2 November 26, 2015 Initial commit
-v0.0.3 November 30, 2015 Updated usage information. Allows minimum length 
-cutoff to filter both SAV and NSJ peptide entries.
+                        

@@ -11,7 +11,8 @@ class BedEntry( object ):
     def __init__(self, line):
         self.line = line
         try:
-            (chrom,chromStart,chromEnd,name,score,strand,thickStart,thickEnd,itemRgb,blockCount,blockSizes,blockStarts,seq) = line.split('\t')[0:13]
+            (chrom, chromStart, chromEnd, name, score, strand,
+             thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts, seq) = line.split('\t')[0:13]
             self.chrom = chrom
             self.chromStart = int(chromStart)
             self.chromEnd = int(chromEnd)
@@ -74,7 +75,7 @@ class BedEntry( object ):
                     hasEx1StopCodon = translation.rfind('*', 0, junc)
                     if hasEx1StopCodon >= 0: continue
                     tstart = 0
-                    stop = translation.find('*',junc)
+                    stop = translation.find('*', junc)
                     tstop = stop if stop >= 0 else len(translation)
                     trimmed = translation[tstart:tstop]
                     #get genomic locations for start and end
@@ -122,6 +123,9 @@ class BedEntry( object ):
             blkStarts = self.blockStarts
             for i in range(1,self.blockCount):
                 blkStarts[i] += s_offset
-            items = [str(x) for x in [self.chrom,chrStart,chrEnd,self.name,self.score,self.strand,self.thickStart,self.thickEnd,self.itemRgb,self.blockCount,','.join([str(x) for x in blkSizes]),','.join([str(x) for x in blkStarts])]]
+            items = [str(x) for x in [self.chrom, chrStart, chrEnd, self.name, self.score, self.strand, self.thickStart,
+                                      self.thickEnd, self.itemRgb, self.blockCount,
+                                      ','.join([str(x) for x in blkSizes]),
+                                      ','.join([str(x) for x in blkStarts])]]
             return '\t'.join(items) + '\n'
         return self.line
